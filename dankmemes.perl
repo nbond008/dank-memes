@@ -1,18 +1,15 @@
 #!/usr/bin/perl
+$|=1;
 $\ = "\n";
 my $str = "";
-my $current = "";
-my $continue = 1;
-foreach $char (split("", $0)) {
-    if ($char eq ".") {
-        $continue = 0;
+foreach (split("", uc $0)) {
+    if ($_ eq ".") {
+        last;
     }
-    if ($continue == 1) {
-        $str = $str . ' ' . $char;
-    }
-    if ($char eq "k") {
+    $str = $str . ' ' . $_;
+    if ($_ eq "K") {
         $str = $str . "\n";
     }
 }
-print uc $str;
+print $str;
 exit 0;
